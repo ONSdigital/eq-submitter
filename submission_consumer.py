@@ -346,16 +346,3 @@ class SubmissionConsumer(object):
         """This method closes the connection to RabbitMQ."""
         LOGGER.info('Closing connection')
         self._connection.close()
-
-
-def main():
-    logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
-    example = SubmissionConsumer('amqp://admin:admin@David-RabbitMQ-LB-1784354550.eu-west-1.elb.amazonaws.com:5672/%2F')
-    try:
-        example.run()
-    except KeyboardInterrupt:
-        example.stop()
-
-
-if __name__ == '__main__':
-    main()
